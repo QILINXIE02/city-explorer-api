@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Weather from './Weather'; 
+import Weather from '../library/Weather'; 
 import ErrorMessage from './ErrorMessage';
 import axios from 'axios';
 import './index.css';
