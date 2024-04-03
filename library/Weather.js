@@ -31,6 +31,7 @@ class Forecast {
         this.celsius = weatherData.temp;
         this.description = weatherData.weather.description;
         this.farenheit = (this.celsius * 9/5) + 32;
+    } 
 }
 
 module.exports = getWeather;

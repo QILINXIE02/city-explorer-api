@@ -1,11 +1,16 @@
+'use strict';
+
+//3 party dependencies
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const weatherData = require('./data/weather.json');
 
+//application setup
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3000;
 
+//allows access to our app from client applications like our react app
 app.use(cors()); 
 
 class Forecast {
