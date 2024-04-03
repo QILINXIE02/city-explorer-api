@@ -1,6 +1,8 @@
 'use strict';
 
 //3 party dependencies
+import dotenv from 'dotenv';
+dotenv.config();
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
