@@ -24,9 +24,6 @@ Begin by constructing a backend system to fetch required data from relevant APIs
 This was built on Node using express, dotenv and cors. react + vite for the front end
 
 ## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
-
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 
 
 ## Credit and Collaborations

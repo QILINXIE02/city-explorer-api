@@ -1,38 +1,44 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const getWeather = require('./lib/weather');
-const getMovies = require('./lib/movies');
+const weatherData = require('./data/weather.json');
+
 const app = express();
+const PORT = process.env.PORT || 3001;
 
-// Middlewares
+app.use(cors()); 
 
-app.use(handleError);
-app.use(cors());
+class Forecast {
+  constructor(day) {
+    this.date = day.valid_date;
+    this.description = `Low of ${day.min_temp}, high of ${day.max_temp} with ${day.weather.description}`;
+  }
+}
 
+app.get('/weather', (req, res) => {
+  const { lat, lon, searchQuery } = req.query;
 
-app.get('/weather', getWeather);
-app.get('/movies', getMovies);
+  const city = weatherData.find(city =>
+    city.city_name.toLowerCase() === searchQuery.toLowerCase()
+  );
 
+  if (!city) {
+    res.status(404).json({ error: "City not found in placeholder data." });
+    return;
+  }
 
-// Server Start
-
-const PORT = process.env.PORT || 3000;
-app.get('/', (request, response) => {
-    response.send('Hello World!');
-  });
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+  const forecasts = city.data.map(day => new Forecast(day));
+  res.json(forecasts);
 });
 
-app.get('*', notFound);
+app.use((error, req, res, next) => {
+  console.error(error); 
+  res.status(500).json({ error: "Something went wrong on the server." });
+});
 
-// Helper Function
 
-function notFound(request, response) {
-    response.status(404).send('Not Found');
-}
+app.use('*', (req, res) => res.status(404).send("Not Found"));
 
-function handleError(error, request, response, next) {
-    response.status(500).send(error.message);
-}
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
