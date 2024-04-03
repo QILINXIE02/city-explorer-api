@@ -24,32 +24,32 @@ Begin by constructing a backend system to fetch required data from relevant APIs
 This was built on Node using express, dotenv and cors. react + vite for the front end
 
 ## Change Log
-
+2pm created library folders with movies.js nd and weather.js,deleted other files that are not needed
 
 ## Credit and Collaborations
 ChatGPT helped me with this lab
 
 
-1. Name of feature: 
+1. Name of feature: weather 
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 1 hr
 
-Start time: 
+Start time: 1:30pm
 
-Finish time: 
+Finish time: 3pm
 
-Actual time needed to complete: 
+Actual time needed to complete: 1 hr half
 
 
-2. Name of feature: 
+2. Name of feature: Errors 
 
-Estimate of time needed to complete: 
+Estimate of time needed to complete: 30
 
-Start time:  
+Start time:   3pm
 
-Finish time: 
+Finish time: not done
 
-Actual time needed to complete:
+Actual time needed to complete: not done
 
 
 
